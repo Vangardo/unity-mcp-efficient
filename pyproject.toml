@@ -1,0 +1,56 @@
+[project]
+name = "unity-mcp-efficient"
+version = "0.2.0"
+description = "Token-efficient MCP facade and Codex skill for MCP for Unity"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE.md", "THIRD_PARTY_NOTICES.md"]
+keywords = ["unity", "mcp", "codex", "agent", "context", "tool-search"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Games/Entertainment",
+]
+dependencies = [
+    "fastmcp>=3.0.2,<4",
+    "mcp>=1.16.0,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pydantic>=2.12",
+    "pytest>=8,<10",
+    "pytest-asyncio>=0.23,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/Vangardo/unity-mcp-efficient"
+Repository = "https://github.com/Vangardo/unity-mcp-efficient.git"
+Issues = "https://github.com/Vangardo/unity-mcp-efficient/issues"
+Upstream = "https://github.com/CoplayDev/unity-mcp"
+Inspiration = "https://github.com/Vangardo/mcp_hub"
+
+[project.scripts]
+unity-mcp-efficient = "unity_mcp_efficient.server:main"
+
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

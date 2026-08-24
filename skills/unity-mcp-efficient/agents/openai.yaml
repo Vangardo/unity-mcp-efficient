@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unity MCP Efficient"
+  short_description: "Token-efficient Unity Editor orchestration"
+  default_prompt: "Use $unity-mcp-efficient to inspect and modify this Unity project with compact, bulk-first MCP calls."
