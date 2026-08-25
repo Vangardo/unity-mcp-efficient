@@ -33,7 +33,7 @@ classifiers = [
 ]
 dependencies = [
     "fastmcp>=3.0.2,<4",
-    "mcp>=1.16.0,<2",
+    "mcp>=1.16.0,<3",
 ]
 
 [project.optional-dependencies]
