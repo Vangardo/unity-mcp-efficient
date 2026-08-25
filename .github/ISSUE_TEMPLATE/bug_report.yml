@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible facade, skill, compatibility, or compaction problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Remove credentials, private source code, scene data, and proprietary assets before posting.
+  - type: input
+    id: version
+    attributes:
+      label: Unity MCP Efficient version
+      description: Use a release tag or commit SHA.
+      placeholder: v0.2.0
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: MCP for Unity version
+      placeholder: v10.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: MCP client
+      options:
+        - Codex
+        - Claude Code
+        - Claude Desktop
+        - Cursor
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the operation name and compact response when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Provide the shortest safe sequence that reproduces the problem.
+      placeholder: |
+        1. Start MCP for Unity over HTTP
+        2. Call ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Add bounded logs or result metadata. Do not paste large raw scene or console dumps.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I reproduced this with the direct upstream MCP or explained why that comparison is not possible.
+        - label: I removed credentials and private project data from this report.
+          required: true
+        - label: This is not an unpatched security vulnerability.
+          required: true

@@ -4,9 +4,21 @@ version = "0.2.0"
 description = "Token-efficient MCP facade and Codex skill for MCP for Unity"
 readme = "README.md"
 requires-python = ">=3.10"
+authors = [{ name = "Vangardo" }]
+maintainers = [{ name = "Vangardo" }]
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md", "THIRD_PARTY_NOTICES.md"]
-keywords = ["unity", "mcp", "codex", "agent", "context", "tool-search"]
+keywords = [
+    "unity",
+    "unity3d",
+    "mcp",
+    "model-context-protocol",
+    "codex",
+    "ai-agents",
+    "llm-tools",
+    "token-efficiency",
+    "tool-search",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
@@ -35,6 +47,8 @@ dev = [
 Homepage = "https://github.com/Vangardo/unity-mcp-efficient"
 Repository = "https://github.com/Vangardo/unity-mcp-efficient.git"
 Issues = "https://github.com/Vangardo/unity-mcp-efficient/issues"
+Changelog = "https://github.com/Vangardo/unity-mcp-efficient/blob/main/CHANGELOG.md"
+Releases = "https://github.com/Vangardo/unity-mcp-efficient/releases"
 Upstream = "https://github.com/CoplayDev/unity-mcp"
 Inspiration = "https://github.com/Vangardo/mcp_hub"
 

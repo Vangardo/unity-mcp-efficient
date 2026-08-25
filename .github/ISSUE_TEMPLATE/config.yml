@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Vangardo/unity-mcp-efficient/security/advisories/new
+    about: Report unpatched vulnerabilities privately. Do not open a public issue.
+  - name: Upstream MCP for Unity
+    url: https://github.com/CoplayDev/unity-mcp
+    about: Report problems that reproduce in the upstream server without this facade.

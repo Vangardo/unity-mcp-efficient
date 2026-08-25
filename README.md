@@ -1,12 +1,15 @@
 # Unity MCP Efficient
 
 [![CI](https://github.com/Vangardo/unity-mcp-efficient/actions/workflows/ci.yml/badge.svg)](https://github.com/Vangardo/unity-mcp-efficient/actions/workflows/ci.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/Vangardo/unity-mcp-efficient?display_name=tag)](https://github.com/Vangardo/unity-mcp-efficient/releases/latest)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An independent, token-efficient MCP facade and Codex skill for [MCP for Unity](https://github.com/CoplayDev/unity-mcp).
+A small compatibility layer that lets AI clients use [MCP for Unity](https://github.com/CoplayDev/unity-mcp) without loading its full tool surface into every prompt.
 
-It keeps the full Unity feature set behind a small model-facing API. The model sees six stable tools, searches the upstream catalog on demand, receives compact Unity-aware responses, and can chain routine work without bringing every intermediate result into the conversation.
+The model sees six stable tools and discovers the required Unity operation on demand. The facade then compacts routine output, preserves full results for bounded retrieval, and batches related work without forcing every intermediate response into the conversation.
+
+Measured against MCP for Unity `v10.1.0`, the model-visible schema fell from 23,280 estimated tokens to 915, while 377 indexed Unity operations remained reachable. The reproducible benchmark measures context footprint, not API billing.
 
 > [!IMPORTANT]
 > This project does not replace the Unity package or its Python server. MCP for Unity remains the backend. Register the facade, not the upstream server, with the AI client. Exposing both tool surfaces removes most of the context savings.
@@ -105,13 +108,13 @@ Install [uv](https://docs.astral.sh/uv/) when needed, then run:
 ```bash
 codex mcp add unity-efficient \
   --env UNITY_MCP_BACKEND_URL=http://127.0.0.1:8080/mcp \
-  -- uvx --from git+https://github.com/Vangardo/unity-mcp-efficient.git unity-mcp-efficient
+  -- uvx --from git+https://github.com/Vangardo/unity-mcp-efficient.git@v0.2.0 unity-mcp-efficient
 ```
 
 On PowerShell, use the same command on one line:
 
 ```powershell
-codex mcp add unity-efficient --env UNITY_MCP_BACKEND_URL=http://127.0.0.1:8080/mcp -- uvx --from git+https://github.com/Vangardo/unity-mcp-efficient.git unity-mcp-efficient
+codex mcp add unity-efficient --env UNITY_MCP_BACKEND_URL=http://127.0.0.1:8080/mcp -- uvx --from git+https://github.com/Vangardo/unity-mcp-efficient.git@v0.2.0 unity-mcp-efficient
 ```
 
 Remove or disable any direct MCP for Unity entry from the same Codex client. Keep the upstream HTTP server running, but do not register its 48-tool surface with the model.
@@ -121,7 +124,7 @@ Remove or disable any direct MCP for Unity entry from the same Codex client. Kee
 The easiest route is to ask Codex:
 
 ```text
-$skill-installer Install the skill from https://github.com/Vangardo/unity-mcp-efficient/tree/main/skills/unity-mcp-efficient
+$skill-installer Install the skill from https://github.com/Vangardo/unity-mcp-efficient/tree/v0.2.0/skills/unity-mcp-efficient
 ```
 
 For a manual user-level install, clone the repository and copy `skills/unity-mcp-efficient` to:
@@ -143,7 +146,7 @@ Use this stdio configuration shape:
       "command": "uvx",
       "args": [
         "--from",
-        "git+https://github.com/Vangardo/unity-mcp-efficient.git",
+        "git+https://github.com/Vangardo/unity-mcp-efficient.git@v0.2.0",
         "unity-mcp-efficient"
       ],
       "env": {
@@ -213,6 +216,14 @@ We took the progressive-disclosure idea from work on [Vangardo/mcp_hub](https://
 If you need this pattern for Slack, Teamwork, Telegram, calendar, memory, automation, or cross-service agents, see [MCP Hub](https://github.com/Vangardo/mcp_hub).
 
 The Unity compatibility backend is [CoplayDev/MCP for Unity](https://github.com/CoplayDev/unity-mcp), distributed under the MIT License. This repository is an independent project and does not include its source code. See [NOTICE.md](NOTICE.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Project documents
+
+- [Changelog](CHANGELOG.md)
+- [Contributing guide](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Release process](RELEASING.md)
+- [Benchmark method and results](BENCHMARKS.md)
 
 ## License and trademarks
 

@@ -4,6 +4,13 @@
 
 Unity MCP Efficient forwards operations to MCP for Unity. Depending on the exposed upstream catalog, those operations can edit project files, execute code in the Unity Editor, install packages, delete objects, run builds, or access local project data. The facade reduces context and adds recovery controls. Those controls do not provide a sandbox or authorization system.
 
+## Supported versions
+
+| Version | Security fixes |
+|---|---|
+| Latest `0.2.x` release | Supported |
+| Earlier versions | Upgrade before reporting |
+
 ## Safe defaults
 
 - Keep the upstream MCP for Unity server bound to loopback unless you have configured its authentication and network controls.

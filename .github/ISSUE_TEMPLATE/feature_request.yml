@@ -1,0 +1,40 @@
+name: Feature request
+description: Propose an improvement that preserves the compact model-facing contract.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the Unity workflow or context cost, not only the proposed API.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain what the model should see and what should remain behind retrieval.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and output impact
+      description: Estimate changes to tool schemas, compact output, calls, or stored results.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The request is not already supported through capability search and `call_operation`.
+          required: true
+        - label: The proposal does not require exposing a large schema or raw payload by default.
+          required: true

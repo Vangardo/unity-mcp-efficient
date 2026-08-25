@@ -2,6 +2,8 @@
 
 Contributions are welcome when they preserve the main contract: a small model-facing surface, bounded output, recoverable raw results, and conservative mutation behavior.
 
+Use the repository's issue forms for reproducible bugs and focused feature proposals. Report vulnerabilities through the private process in [SECURITY.md](SECURITY.md).
+
 ## Development setup
 
 ```bash
@@ -20,6 +22,7 @@ The unit tests use in-process fakes and do not require Unity. Live benchmarks re
 - Do not expand compact output by default to make a single case easier. Store the raw result and expose a narrow retrieval path instead.
 - Never retry mutations automatically.
 - Keep optional or tool-specific detail out of `SKILL.md`; put it in a referenced document that Codex loads when relevant.
+- Add an entry under `Unreleased` in [CHANGELOG.md](CHANGELOG.md) for user-visible behavior changes.
 - Include the upstream MCP for Unity version used for compatibility testing.
 - Do not submit Unity assets, proprietary project data, copied documentation, generated credentials, or third-party source without a compatible license and the required notices.
 
