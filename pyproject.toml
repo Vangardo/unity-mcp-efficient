@@ -32,7 +32,7 @@ classifiers = [
     "Topic :: Games/Entertainment",
 ]
 dependencies = [
-    "fastmcp>=3.0.2,<4",
+    "fastmcp>=3.0.2,<5",
     "mcp>=1.16.0,<2",
 ]
 
